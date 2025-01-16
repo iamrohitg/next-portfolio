@@ -72,146 +72,105 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    title: "MS Teams Clone (Web App)",
+    des: "A Microsoft Teams clone developed using React JS and Chat Engine. Features include real-time messaging, chat room creation, customizable profiles, and an online user list.",
+    img: "./assets/images/projects/MS-teams.jpeg",
+    iconLists: ["/re.svg", "/chat.svg", "/ts.svg"],
+    link: "https://63b7f64484c62f27f74ac34f--benevolent-bonbon-352e6a.netlify.app/",
+    code: "https://github.com/iamrohitg/ChatterBox",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    title: "Web3 Crowdfunding Platform",
+    des: "A decentralized crowdfunding platform on Ethereum, leveraging smart contracts for secure and transparent transactions.",
+    img: "./assets/images/projects/fund-rise.png",
+    iconLists: ["/next.svg", "/eth.svg", "/ts.svg", "/blockchain.svg"],
+    link: "https://gilded-douhua-6d8b6e.netlify.app/",
+    code: "https://github.com/iamrohitg/FundRise",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    title: "Wildfire Risk Prediction",
+    des: "Using CNN models and data from the Mapbox API to predict wildfire risks based on spatial analysis.",
+    img: "https://storage.googleapis.com/kaggle-datasets-images/2860500/4932759/a2acab4092369f325a61210f833178a2/dataset-cover.png?t=2023-02-01-18-31-01",
+    iconLists: ["/py.svg", "/mapbox.svg", "/ml.svg"],
+    code: "https://github.com/iamrohitg/Probabilistic-Cellular-Automata-Forest-Fire-Simulator",
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-];
-
-export const companies = [
-  {
-    id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
-  },
-  {
-    id: 2,
-    name: "appwrite",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
+    title: "PG Life (Web App)",
+    des: "Platform to manage and explore PG accommodations, connecting users with landlords or tenants.",
+    img: "./assets/images/projects/pg-life.png",
+    iconLists: ["/re.svg", "/tail.svg", "/node.svg"],
+    code: "https://github.com/iamrohitg/PG-Life",
   },
   {
     id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
+    title: "Unbeatable Tic-Tac-Toe",
+    des: "Python implementation of an unbeatable Tic Tac Toe game using the Minimax algorithm.",
+    img: "./assets/images/projects/tic-tac.png",
+    iconLists: ["/py.svg", "/ai.svg"],
+    code: "https://github.com/iamrohitg/TIC-TAC-TOE-AI",
+  },
+  {
+    id: 6,
+    title: "E-commerce Website",
+    des: "An online shopping platform with cart functionality and dynamic product listings.",
+    img: "./assets/images/projects/E-commerce.png",
+    iconLists: ["/re.svg", "/tail.svg", "/stripe.svg"],
+    link: "https://lucent-dusk-5f87cb.netlify.app/",
+    code: "https://github.com/iamrohitg/E-commerce-Website",
   },
 ];
 
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    title: "Software Developer Engineer (SDE)",
+    desc: "Developed and maintained scalable, user-facing features for various projects.",
+    duration: "Jan 2024 - Jan 2025",
+    thumbnail: "/exp4.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
+    title: "Front-End Development Intern",
+    desc: "Developed web applications using React.js for Celebal Technologies.",
+    duration: "May - June 2023",
+    thumbnail: "/exp1.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
+    title: "Web Development Intern",
+    desc: "Built and deployed business tools as part of CHAWTIN Business's front-end team.",
+    duration: "July - August 2022",
+    thumbnail: "/exp2.svg",
   },
   {
     id: 4,
     title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    desc: "Developed and maintained scalable, user-facing features for various projects.",
+    duration: "2022 - 2023",
+    thumbnail: "/exp3.svg",
   },
 ];
 
 export const socialMedia = [
   {
     id: 1,
+    platform: "GitHub",
     img: "/git.svg",
+    link: "https://github.com/iamrohitg",
   },
   {
     id: 2,
+    platform: "Twitter",
     img: "/twit.svg",
+    link: "https://x.com/rohitghosh76gm1",
   },
   {
     id: 3,
+    platform: "LinkedIn",
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/rohit-ghosh-9b7605248/",
   },
 ];

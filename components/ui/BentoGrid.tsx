@@ -1,19 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
-
 import { cn } from "@/lib/utils";
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import MagicButton from "../MagicButton";
 
-// Dynamically import Lottie to ensure it only loads on the client side
+// Dynamically import Lottie with proper loading state
 const Lottie = dynamic(() => import("react-lottie"), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
+  loading: () => <div className="w-full h-[200px]" />,
 });
 
 export const BentoGrid = ({
@@ -59,15 +57,38 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [animationData, setAnimationData] = useState<any>(null);
+
+  // Add ref to track component mount status
+  const isMounted = useRef(true);
 
   useEffect(() => {
     setIsClient(true);
+
+    // Load animation data
+    const loadAnimationData = async () => {
+      try {
+        const data = await import("@/data/confetti.json");
+        if (isMounted.current) {
+          setAnimationData(data);
+        }
+      } catch (error) {
+        console.error("Error loading animation:", error);
+      }
+    };
+
+    loadAnimationData();
+
+    // Cleanup function
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   const defaultOptions = {
     loop: copied,
     autoplay: copied,
-    animationData: isClient ? require("@/data/confetti.json") : {},
+    animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -78,6 +99,13 @@ export const BentoGridItem = ({
     if (typeof navigator !== "undefined") {
       navigator.clipboard.writeText(text);
       setCopied(true);
+
+      // Reset copied state after animation
+      setTimeout(() => {
+        if (isMounted.current) {
+          setCopied(false);
+        }
+      }, 2500); // Adjust timing based on your animation duration
     }
   };
 
@@ -93,21 +121,20 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      {/* add img divs */}
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
         <div
           className={`absolute right-0 -bottom-5 ${
             id === 5 && "w-full opacity-80"
-          } `}
+          }`}
         >
           {spareImg && (
             <img
@@ -168,23 +195,23 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
-          {id === 6 && (
-            <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${
-                  copied ? "block" : "block"
-                }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
 
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
+          {id === 6 && (
+            <div className="mt-5 relative z-10">
+              <div className="absolute -bottom-5 right-0 pointer-events-none">
+                {isClient && animationData && (
+                  <Lottie options={defaultOptions} height={200} width={400} />
+                )}
+              </div>
+              <div className="relative z-20">
+                <MagicButton
+                  title={copied ? "Email is Copied!" : "Copy my email address"}
+                  icon={<IoCopyOutline />}
+                  position="left"
+                  handleClick={handleCopy}
+                  otherClasses="!bg-[#161A31] hover:!bg-[#1f2543]"
+                />
+              </div>
             </div>
           )}
         </div>
