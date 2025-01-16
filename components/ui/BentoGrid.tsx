@@ -1,13 +1,17 @@
-import { useState } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 
 import { cn } from "@/lib/utils";
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
-import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+
+// Dynamically import Lottie to ensure it only loads on the client side
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 export const BentoGrid = ({
   className,
@@ -51,11 +55,16 @@ export const BentoGridItem = ({
   const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
 
   const [copied, setCopied] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const defaultOptions = {
     loop: copied,
     autoplay: copied,
-    animationData: animationData,
+    animationData: isClient ? require("@/data/confetti.json") : {},
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -63,8 +72,10 @@ export const BentoGridItem = ({
 
   const handleCopy = () => {
     const text = "rohitghosh76@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+    if (typeof navigator !== "undefined") {
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+    }
   };
 
   return (
