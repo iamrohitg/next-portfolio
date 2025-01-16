@@ -11,7 +11,10 @@ import GridGlobe from "./GridGlobe";
 import MagicButton from "../MagicButton";
 
 // Dynamically import Lottie to ensure it only loads on the client side
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const Lottie = dynamic(() => import("react-lottie"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 export const BentoGrid = ({
   className,
